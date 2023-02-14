@@ -35,6 +35,7 @@ if(isset($_POST['add-post']))
     $result= move_uploaded_file($_FILES['image']['tmp_name'],$dest);
     if($result){
         $_POST['image']=$img_name;
+        // new pushing
     }
 
     $topic_id = $_POST['Topic'];
