@@ -35,7 +35,10 @@ if(isset($_POST['add-post']))
     $result= move_uploaded_file($_FILES['image']['tmp_name'],$dest);
     if($result){
         $_POST['image']=$img_name;
-        // new pushing
+        // for a new push
+        /// git add .
+        // git commit -m "something and something"
+        ///git push
     }
 
     $topic_id = $_POST['Topic'];
