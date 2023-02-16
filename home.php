@@ -34,6 +34,7 @@ if($user==false)
           <ul>
             <li><a href="">HOME</a></li>
             <li><a href="">ABOUT</a></li>
+            <!-- about er bhitore review add hobe  -->
             <li><a href="">DETECT</a></li>
             <li><a href="blog.php">BLOG</a></li>
             <li><a href="">CONTACT</a></li>
@@ -45,7 +46,7 @@ if($user==false)
         <h1>Bienvenido a VegBuddy</h1>
         <p>Vegetables are parts of plants that are consumed by humans or other animals as food.Dont you want to know everything about your food ?   </p>
 
-        <a href="" class="hero-btn">Visit us to know more</a>
+        <!-- <a href="" class="hero-btn">Visit us to know more</a> -->
       </div>
 
 

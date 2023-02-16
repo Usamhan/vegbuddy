@@ -1,4 +1,6 @@
 <?php 
+//to hide the warnings 
+error_reporting(E_ERROR | E_PARSE);
 include("path.php");
 include('database/db_connection.php');
 
@@ -123,70 +125,91 @@ if($result){
       <div class="content clearfix">
         <!-- main content -->
         <div class="main-content">
-          <h1 class="recent-post-title">Recent posts</h1>
+          <!-- <h1 class="recent-post-title">Recent posts</h1> -->
 
-          <div class="post">
-            <img src="images/mainBG_home.jpg" class="post-image" />
-            <div class="post-preview">
+          
+
+          <?php
+          $topic_id=$_GET['topicid'];
+
+          if(isset($_GET['topicid'])){
+           echo" <h1 class='recent-post-title'>Related posts</h1>";
+             $sql = "SELECT * FROM `posts` WHERE topic_id='$topic_id' ";
+            $result = mysqli_query($conn, $sql);
+            if($result){
+              while ($row = mysqli_fetch_assoc($result)) {
+                // $id=$row['id'];
+                $name=$_SESSION['name'];
+                $id=$row['id'];
+                
+                $title=$row['title'];
+                $time=$row['created_at'];
+
+                echo"
+            <div class='post'>
+            <img src='./signUp/user_pictures/$img.jpg' class='post-image' />
+            <div class='post-preview'>
               <h2>
-                <a href="single.html"
-                  >The strongest and sweetest song is yet to be sung</a
+                <a href='single.php'
+                  >$title</a
                 >
               </h2>
-              <i class="far fa-user">Umeed Samhan</i>
+              <i class='far fa-user'>$name</i>
               &nbsp;
-              <i class="far fa-calendar">Mar 11, 2019</i>
-              <br />
-              <p class="preview-text" style="margin-top: 15px">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
-                eius at officiis laborum blanditiis laudantium non libero?
-              </p>
-              <br />
-              <a href="single.html" class="btn btn-read-more">Read More</a>
+              <i class='far fa-calendar'>$time</i>
+             
+              <a href='single.php' class='btn btn-read-more'>Read More</a>
             </div>
-          </div>
+          </div>";
+              }
+            }
 
-          <div class="post">
-            <img src="images/mainBG_home.jpg" class="post-image" />
-            <div class="post-preview">
+//             <script>
+// document.getElementById("p1").innerHTML = "New text!";
+// </script>
+          }
+            
+            //  
+
+
+          else{
+            echo" <h1 class='recent-post-title'>All posts</h1>";
+
+             $sql = "SELECT * FROM `posts`";
+            $result = mysqli_query($conn, $sql);
+            if($result){
+              while ($row = mysqli_fetch_assoc($result)) {
+                // $id=$row['id'];
+                $name=$_SESSION['name'];
+                $id=$row['id'];
+                
+                $title=$row['title'];
+                $time=$row['created_at'];
+
+                echo"
+            <div class='post'>
+            <img src='./signUp/user_pictures/$img.jpg' class='post-image' />
+            <div class='post-preview'>
               <h2>
-                <a href="single.html"
-                  >The strongest and sweetest song is yet to be sung</a
+                <a href='single.php'
+                  >$title</a
                 >
               </h2>
-              <i class="far fa-user">Umeed Samhan</i>
+              <i class='far fa-user'>$name</i>
               &nbsp;
-              <i class="far fa-calendar">Mar 11, 2019</i>
-              <br />
-              <p class="preview-text" style="margin-top: 15px">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
-                eius at officiis laborum blanditiis laudantium non libero?
-              </p>
-              <br />
-              <a href="single.php" class="btn btn-read-more">Read More</a>
+              <i class='far fa-calendar'>$time</i>
+             
+              <a href='single.php' class='btn btn-read-more'>Read More</a>
             </div>
-          </div>
+          </div>";
+              }
+            }
+          }
+            
+             ?>
+         
 
-          <div class="post">
-            <img src="images/mainBG_home.jpg" class="post-image" />
-            <div class="post-preview">
-              <h2>
-                <a href="single.php"
-                  >The strongest and sweetest song is yet to be sung</a
-                >
-              </h2>
-              <i class="far fa-user">Umeed Samhan</i>
-              &nbsp;
-              <i class="far fa-calendar">Mar 11, 2019</i>
-              <br />
-              <p class="preview-text" style="margin-top: 15px">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
-                eius at officiis laborum blanditiis laudantium non libero?
-              </p>
-              <br />
-              <a href="single.php" class="btn btn-read-more">Read More</a>
-            </div>
-          </div>
+          
 
           <div class="post">
             <img src="images/mainBG_home.jpg" class="post-image" />
@@ -214,7 +237,7 @@ if($result){
         <div class="siderbar">
           <div class="section search">
             <h2 class="section-title">Search</h2>
-            <form action="index . html" method="post">
+            <form action="blog.php" method="post">
               <input
                 type="text"
                 name=" search-term"
@@ -223,6 +246,46 @@ if($result){
               />
             </form>
           </div>
+
+          <?php
+          
+          // if(isset($_POST['search-term'])){
+          //   echo" <h1 class='recent-post-title'>Searched Posts</h1>";
+          //   $searchTerm=$_POST['search-term'];
+          //   $query=" SELECT * FROM `posts` WHERE title,body LIKE `posts` or `posts`";
+          //   $result = mysqli_query($conn, $sql);
+          
+          //   if($result){
+          //     while ($row = mysqli_fetch_assoc($result)) {
+          //       // $id=$row['id'];
+          //       $name=$_SESSION['name'];
+          //       $id=$row['id'];
+                
+          //       $title=$row['title'];
+          //       $time=$row['created_at'];
+
+          //       echo"
+          //   <div class='post'>
+          //   <img src='./signUp/user_pictures/$img.jpg' class='post-image' />
+          //   <div class='post-preview'>
+          //     <h2>
+          //       <a href='single.php'
+          //         >$title</a
+          //       >
+          //     </h2>
+          //     <i class='far fa-user'>$name</i>
+          //     &nbsp;
+          //     <i class='far fa-calendar'>$time</i>
+             
+          //     <a href='single.php' class='btn btn-read-more'>Read More</a>
+          //   </div>
+          // </div>";
+          //     }
+          //   }
+          // }
+
+         
+          ?>
 
           <div class="section topics">
             <h2 class="section-title">Topics</h2>
@@ -234,8 +297,11 @@ if($result){
               while ($row = mysqli_fetch_assoc($result)) {
                 // $id=$row['id'];
                 $name=$row['name'];
+                $id=$row['id'];
                 
-                echo"<li><a href='#'>$name</a></li>";
+                echo"<li><a href='blog.php?topicid=$id'>$name</a></li>";
+
+                
               }
             }
               

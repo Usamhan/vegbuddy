@@ -1,6 +1,14 @@
 <?php
+session_start();
 //to hide the warnings 
 error_reporting(E_ERROR | E_PARSE);
+$user=$_SESSION['user_id'];
+
+if($user==false)
+{
+  echo "<script>alert('First log in');location.href='../../index.php';</script>";
+}
+
  include('../../database/db_connection.php');
 // include('../../authentication/user_authentication.php') 
 include('../../controller/posts.php')?>
@@ -28,7 +36,7 @@ include('../../controller/posts.php')?>
     <!-- source for nav bar https://lightcodeblog.com/how-to-make-drop-down-menu-using-html-and-css/
                             https://www.youtube.com/watch?v=h3E68tTyE34 -->
     <div class="menu-bar">
-      <h1 class="logo">Veg<span>Buddy</span></h1>
+    <h1 class="logo"><a href="../../home.php">Veg<span>Buddy</span></a></span></h1>
       <ul>
             <li>
           <a href="#"><?php
@@ -56,7 +64,7 @@ include('../../controller/posts.php')?>
         <div class="left-sidebar">
            <ul>
             <li><a href="index.php">Manage Posts</a></li>
-            <li><a href="../users/">Manage Users</a></li>
+            <!-- <li><a href="../users/">Manage Users</a></li> -->
             <li><a href="../topics/">Manage Topics</a></li>
            </ul>
         </div>
@@ -95,12 +103,12 @@ include('../../controller/posts.php')?>
                 <td>$id</td>
                 <td>$title</td>
                 <td>$name</td>
-                <td><a href='edit.php' class='edit'>edit</a></td>
+               
                 <td><a href='index.php?deleteid=$id' class='delete'>delete</a></td>
               </tr>";
               }
             }
-              
+               // <td><a href='edit.php' class='edit'>edit</a></td>
             
              ?>
 

@@ -1,10 +1,11 @@
 <?php include('database/db_connection.php') ?>
 <header>
     <div class="menu-bar">
-        <h1 class="logo">Veg<span>Buddy</span></h1>
+        <!-- <h1 class="logo">Veg<span>Buddy</span></h1> -->
+        <h1 class="logo"><a href="home.php">Veg<span>Buddy</span></a></h1>
         <ul>
             <li><a href="home.php">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="#">Detect</a></li>
             <li><a href="#">Blog</a></li>
             
             

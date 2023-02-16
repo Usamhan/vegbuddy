@@ -1,5 +1,18 @@
-<?php include("../../path.php") ;
-include('../../database/db_connection.php')?>
+<?php
+//to hide the warnings 
+error_reporting(E_ERROR | E_PARSE);
+include("../../path.php") ;
+include('../../database/db_connection.php');
+
+session_start();
+
+$user=$_SESSION['user_id'];
+
+if($user==false)
+{
+  echo "<script>alert('First log in');location.href='../../index.php';</script>";
+}
+?>
 
 <html lang="en">
 
@@ -20,10 +33,10 @@ include('../../database/db_connection.php')?>
   <!-- source for nav bar https://lightcodeblog.com/how-to-make-drop-down-menu-using-html-and-css/
                             https://www.youtube.com/watch?v=h3E68tTyE34 -->
   <div class="menu-bar">
-    <h1 class="logo">Veg<span>Buddy</span></h1>
+    <h1 class="logo"><a href="../../home.php">Veg<span>Buddy</span></a></span></h1>
     <ul>
       <li>
-        <a href="#">VegBuddy <i class="fas fa-caret-down"></i></a>
+       <a href="#"><?php echo $_SESSION['name'] ?> <i class="fas fa-caret-down"></i></a>
 
         <div class="dropdown-menu">
           <ul>
@@ -44,7 +57,7 @@ include('../../database/db_connection.php')?>
     <div class="left-sidebar">
       <ul>
         <li><a href="index.php">Manage Posts</a></li>
-        <li><a href="../users/">Manage Users</a></li>
+        <!-- <li><a href="../users/">Manage Users</a></li> -->
         <li><a href="../topics/">Manage Topics</a></li>
       </ul>
     </div>
@@ -90,7 +103,7 @@ include('../../database/db_connection.php')?>
                         $name = $row['name'];
                         $id= $row['id'];
                         
-                        echo "<option value=$id>$name $id</option>";
+                        echo "<option value=$id>$name</option>";
                         // echo"<li><a href='#'>$name</a></li>";
                       }
                     } ?>
