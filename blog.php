@@ -144,6 +144,7 @@ if($result){
                 
                 $title=$row['title'];
                 $time=$row['created_at'];
+                $img=$row['image'];
 
                 echo"
             <div class='post'>
@@ -185,6 +186,7 @@ if($result){
                 
                 $title=$row['title'];
                 $time=$row['created_at'];
+                $img=$row['image'];
 
                 echo"
             <div class='post'>
