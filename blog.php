@@ -150,7 +150,7 @@ if($result){
             <img src='./signUp/user_pictures/$img.jpg' class='post-image' />
             <div class='post-preview'>
               <h2>
-                <a href='single.php'
+                <a href='single.php?id=$id'
                   >$title</a
                 >
               </h2>
@@ -179,7 +179,7 @@ if($result){
             $result = mysqli_query($conn, $sql);
             if($result){
               while ($row = mysqli_fetch_assoc($result)) {
-                // $id=$row['id'];
+                 $id=$row['id'];
                 $name=$_SESSION['name'];
                 $id=$row['id'];
                 
@@ -191,7 +191,7 @@ if($result){
             <img src='./signUp/user_pictures/$img.jpg' class='post-image' />
             <div class='post-preview'>
               <h2>
-                <a href='single.php'
+                <a href='single.php?id=$id'
                   >$title</a
                 >
               </h2>
@@ -211,26 +211,7 @@ if($result){
 
           
 
-          <div class="post">
-            <img src="images/mainBG_home.jpg" class="post-image" />
-            <div class="post-preview">
-              <h2>
-                <a href="single.php"
-                  >The strongest and sweetest song is yet to be sung</a
-                >
-              </h2>
-              <i class="far fa-user">Umeed Samhan</i>
-              &nbsp;
-              <i class="far fa-calendar">Mar 11, 2019</i>
-              <br />
-              <p class="preview-text" style="margin-top: 15px">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
-                eius at officiis laborum blanditiis laudantium non libero?
-              </p>
-              <br />
-              <a href="single.php" class="btn btn-read-more">Read More</a>
-            </div>
-          </div>
+          
         </div>
         <!-- //main content -->
 
@@ -308,17 +289,7 @@ if($result){
             
              ?>
 
-
-
-
-
-              <!-- <li><a href="#">Recipe</a></li>
-              <li><a href="#">Recipe</a></li>
-              <li><a href="#">Recipe</a></li>
-              <li><a href="#">Recipe</a></li>
-              <li><a href="#">Recipe</a></li>
-              <li><a href="#">Recipe</a></li>
-              <li><a href="#">Recipe</a></li> -->
+             
             </ul>
           </div>
         </div>

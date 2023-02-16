@@ -87,50 +87,30 @@ $sql = "SELECT * FROM `posts` WHERE id=$id";
 
         <div class="siderbar single">
 
-            <div class="section popular">
-                <h2 class="section-title">Popular</h2>
-
-                <div class="post clearfix">
-                    <img src="images/mainBG_home.jpg" alt="">
-                    <a href="" class="title"><h4>How to overcome your fears</h4></a>
-                </div>
-
-                <div class="post clearfix">
-                    <img src="images/mainBG_home.jpg" alt="">
-                    <a href="" class="title"><h4>How to overcome your fears</h4></a>
-                </div>
-
-                <div class="post clearfix">
-                    <img src="images/mainBG_home.jpg" alt="">
-                    <a href="" class="title"><h4>How to overcome your fears</h4></a>
-                </div>
-
-                <div class="post clearfix">
-                    <img src="images/mainBG_home.jpg" alt="">
-                    <a href="" class="title"><h4>How to overcome your fears</h4></a>
-                </div>
-
-                <div class="post clearfix">
-                    <img src="images/mainBG_home.jpg" alt="">
-                    <a href="" class="title"><h4>How to overcome your fears</h4></a>
-                </div>
-
-                <div class="post clearfix">
-                    <img src="images/mainBG_home.jpg" alt="">
-                    <a href="" class="title"><h4>How to overcome your fears</h4></a>
-                </div>
-            </div>
+           
           
-          <div class="section topics">
+            <div class="section topics">
             <h2 class="section-title">Topics</h2>
             <ul>
-              <li><a href="#">Recipe</a></li>
-              <li><a href="#">Recipe</a></li>
-              <li><a href="#">Recipe</a></li>
-              <li><a href="#">Recipe</a></li>
-              <li><a href="#">Recipe</a></li>
-              <li><a href="#">Recipe</a></li>
-              <li><a href="#">Recipe</a></li>
+            <?php
+             $sql = "SELECT * FROM `topics`";
+            $result = mysqli_query($conn, $sql);
+            if($result){
+              while ($row = mysqli_fetch_assoc($result)) {
+                // $id=$row['id'];
+                $name=$row['name'];
+                $id=$row['id'];
+                
+                echo"<li><a href='blog.php?topicid=$id'>$name</a></li>";
+
+                
+              }
+            }
+              
+            
+             ?>
+
+             
             </ul>
           </div>
         </div>
