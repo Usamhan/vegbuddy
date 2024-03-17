@@ -201,7 +201,7 @@ if($result){
               &nbsp;
               <i class='far fa-calendar'>$time</i>
              
-              <a href='single.php' class='btn btn-read-more'>Read More</a>
+              <a href='single.php?id=$id' class='btn btn-read-more'>Read More</a>
             </div>
           </div>";
               }
